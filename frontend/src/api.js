@@ -1,5 +1,9 @@
+// In local dev this is empty (Vite proxies /api to the backend); in a
+// deployed frontend set VITE_API_URL to the backend's public URL.
+const API_BASE = (import.meta.env.VITE_API_URL ?? '').replace(/\/$/, '')
+
 async function request(path, options = {}) {
-  const res = await fetch(path, options)
+  const res = await fetch(`${API_BASE}${path}`, options)
   if (!res.ok) {
     let detail = res.statusText
     try {

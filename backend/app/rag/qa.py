@@ -11,6 +11,12 @@ def _build_llm():
         from langchain_ollama import ChatOllama
 
         return ChatOllama(model=config.OLLAMA_MODEL, temperature=0, num_predict=1024)
+    if config.LLM_PROVIDER == "gemini":
+        from langchain_google_genai import ChatGoogleGenerativeAI
+
+        return ChatGoogleGenerativeAI(
+            model=config.GEMINI_MODEL, temperature=0, max_output_tokens=2048
+        )
     from langchain_anthropic import ChatAnthropic
 
     return ChatAnthropic(model=config.ANTHROPIC_MODEL, max_tokens=2048)

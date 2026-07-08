@@ -29,8 +29,17 @@ ANSWER_MODE = os.getenv("ANSWER_MODE", "auto").lower()
 
 # "anthropic" — Claude API (needs ANTHROPIC_API_KEY + credits)
 # "ollama"    — local open-weights model via Ollama (free, runs on-device)
+# "gemini"    — Google Gemini API free tier (needs GOOGLE_API_KEY)
 LLM_PROVIDER = os.getenv("LLM_PROVIDER", "anthropic").lower()
 OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "llama3.2")
+GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
+
+# Extra allowed CORS origin for a deployed frontend (e.g. the Vercel URL)
+FRONTEND_ORIGIN = os.getenv("FRONTEND_ORIGIN")
+
+# Index the bundled sample docs at startup when the vector store is empty
+# (useful on ephemeral-disk hosts like Render's free tier)
+SEED_SAMPLES_IF_EMPTY = os.getenv("SEED_SAMPLES_IF_EMPTY", "false").lower() == "true"
 
 ALLOWED_EXTENSIONS = {".pdf", ".md", ".txt", ".html", ".htm"}
 
