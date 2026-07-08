@@ -86,6 +86,20 @@ or plain text).
 
 Interactive docs at `http://localhost:8000/docs` (Swagger UI).
 
+## Deployment
+
+The app is container-ready even though the demo runs locally:
+
+- **`Dockerfile`** — builds the backend into a single container (any container
+  host; listens on port 7860)
+- **`render.yaml`** — one-click Render blueprint for the backend
+- **Split-hosting support** — the frontend reads `VITE_API_URL` for a remote
+  backend, CORS is configurable via `FRONTEND_ORIGIN`, and
+  `SEED_SAMPLES_IF_EMPTY=true` re-indexes the sample docs on ephemeral-disk
+  hosts so a fresh deploy is never empty
+- Three interchangeable LLM providers (`LLM_PROVIDER`): `anthropic` (Claude),
+  `gemini` (free tier), or `ollama` (fully local)
+
 ## Design decisions
 
 - **Local embeddings** (ChromaDB's ONNX MiniLM) keep the project a
