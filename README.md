@@ -5,7 +5,13 @@ documentation into a searchable, conversational knowledge base. Upload docs,
 ask questions in natural language, and get grounded answers with inline,
 clickable citations back to the exact source passages.
 
-**Stack:** FastAPI · LangChain · ChromaDB · Claude (Anthropic) · React (Vite)
+**Stack:** FastAPI · LangChain · ChromaDB · Claude (Anthropic) / Llama (Ollama) · React (Vite)
+
+![Chat UI: a question outside the loaded docs is refused, while an in-scope question gets a synthesized answer with clickable page-level citations](docs/screenshot-chat.webp)
+
+*Grounding in action: the same knowledge base refuses an out-of-scope question
+(top) and answers an in-scope one with page-level citations (bottom) — sourced
+from the 2,532-page official ITAM documentation.*
 
 ## How it works
 
