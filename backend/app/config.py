@@ -9,7 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 ANTHROPIC_MODEL = os.getenv("ANTHROPIC_MODEL", "claude-opus-4-8")
 CHROMA_DIR = os.getenv("CHROMA_DIR", str(BASE_DIR / "chroma_data"))
-UPLOAD_DIR = str(BASE_DIR / "uploads")
+UPLOAD_DIR = os.getenv("UPLOAD_DIR", str(BASE_DIR / "uploads"))
 SAMPLE_DOCS_DIR = str(BASE_DIR / "sample_docs")
 
 CHUNK_SIZE = int(os.getenv("CHUNK_SIZE", "1000"))
